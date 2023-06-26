@@ -1,14 +1,12 @@
->**Theta_D_H.Est**
->
->https://github.com/panyuwen/Theta_D_H.Est
->
->Calculator for statictics including Theta, D, H, and so on, based on the VCF input. 
->
->If you use the **Theta_D_H.Est** in your research work, please cite at least one of the following paper(s):
->
->[Genomic diversity and post-admixture adaptation in the Uyghurs](https://doi.org/10.1093/nsr/nwab124) (National Science Review, 2021)    
->[Lineage-specific positive selection on ACE2 contributes to the genetic susceptibility of COVID-19](https://doi.org/10.1093/nsr/nwac118) (National Science Review, 2022)
->
+**Theta_D_H.Est**
+
+Calculator for statictics including Theta, D, H, and so on, based on the VCF input.     
+
+If you use the **Theta_D_H.Est** in your research work, please cite at least one of the following paper(s):     
+
+[Genomic diversity and post-admixture adaptation in the Uyghurs](https://doi.org/10.1093/nsr/nwab124) (National Science Review, 2021)         
+[Lineage-specific positive selection on ACE2 contributes to the genetic susceptibility of COVID-19](https://doi.org/10.1093/nsr/nwac118) (National Science Review, 2022)     
+
 
 
 ---
@@ -41,25 +39,36 @@ To calculate the following statistic within given regions:
 7. name of output file (string) `optional` 
 
 ### Usage:
-	$ ./Theta_D_H.Est -h 
-	$ ./Theta_D_H.Est \
-	    --gzvcf phased.vcf.gz \
-	    --region region.txt \
-	    --samples sample.info \
-	    --haps haps.info \
-	    --window_shift 50000@10000 \
-	    --outgroup N \
-	    --out output.txt
+``` bash
+./Theta_D_H.Est -h
+```
 
->**details about all these arguments** 
->
->**--gzvcf** (required): phased VCF.gz file, in GT format, like "1|0". Note: no duplicate physical positions, separate autosomes and X chromosome  
->**--region** (required): file including target regions to be analyzed. 4 columns: `region ID` `chrom ID` `start pos` `end pos`. no header line, tab or space sperated  
->**--samples** (optional): file including samples to be analyzed. 1 or 2 column: `sample ID` `gender, optional`. gender code, 1: male; 2: female. no header line. **default:** all samples in the VCF.gz file  
->**--haps** (optional): file including haplotypes to be analyzed. 2 columns: `sample ID` `haplotype index (1/2)`, 1: first haplotype; 2: second haplotype. no header line. **default:** all haplotypes in the VCF.gz file
->**--window_shift** (optional): `window_length@increment`, to partition the target region(s) into sliding windows of `window_length ` advanced by `increment`. Then calculate all of the statistic within the sliding windows. **default:** calculate all of the statistic within target region(s)  
->**--outgroup** (optional): `Y / N`, whether the ancestral/derived allele is determined, required for FU&Li's and Fay&Wu's tests. **default:** N  
->**--out** (optional): output file name. output file would be gzipped. **default:** out.txt
+``` bash
+./Theta_D_H.Est \
+	--gzvcf phased.vcf.gz \
+	--region region.txt \
+	--samples sample.info \
+	--haps haps.info \
+	--window_shift 50000@10000 \
+	--outgroup N \
+	--out output.txt
+```
+
+**Details about the arguments** 
+
+**--gzvcf** (required): phased VCF.gz file, in GT format, like "1|0". Note: no duplicate physical positions, separate autosomes and X chromosome  
+
+**--region** (required): file including target regions to be analyzed. 4 columns: `region ID` `chrom ID` `start pos` `end pos`. no header line, tab or space sperated  
+
+**--samples** (optional): file including samples to be analyzed. 1 or 2 column: `sample ID` `gender, optional`. gender code, 1: male; 2: female. no header line. **default:** all samples in the VCF.gz file  
+
+**--haps** (optional): file including haplotypes to be analyzed. 2 columns: `sample ID` `haplotype index (1/2)`, 1: first haplotype; 2: second haplotype. no header line. **default:** all haplotypes in the VCF.gz file
+
+**--window_shift** (optional): `window_length@increment`, to partition the target region(s) into sliding windows of `window_length ` advanced by `increment`. Then calculate all of the statistic within the sliding windows. **default:** calculate all of the statistic within target region(s)  
+
+**--outgroup** (optional): `Y / N`, whether the ancestral/derived allele is determined, required for FU&Li's and Fay&Wu's tests. **default:** N  
+
+**--out** (optional): output file name. output file would be gzipped. **default:** out.txt
 
 ### Tips & Notes:
 1. to calculate statistic across the whole chromosome / genome, you can define the chromosome boundaries in the region file, 
