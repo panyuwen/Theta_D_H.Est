@@ -5,7 +5,7 @@ Calculator for statictics including Theta, D, H, and so on, based on the VCF inp
 If you use the **Theta_D_H.Est** in your research work, please cite at least one of the following paper(s):     
 
 [Genomic diversity and post-admixture adaptation in the Uyghurs](https://doi.org/10.1093/nsr/nwab124) (National Science Review, 2021)         
-[Lineage-specific positive selection on ACE2 contributes to the genetic susceptibility of COVID-19](https://doi.org/10.1093/nsr/nwac118) (National Science Review, 2022)     
+[Lineage-specific positive selection on *ACE2* contributes to the genetic susceptibility of COVID-19](https://doi.org/10.1093/nsr/nwac118) (National Science Review, 2022)     
 
 
 
