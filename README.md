@@ -1,4 +1,4 @@
-**Theta_D_H.Est**
+**Theta_D_H.Est** (by Yuwen Pan)    
 
 Calculator for statictics including Theta, D, H, and so on, based on the VCF input.     
 
