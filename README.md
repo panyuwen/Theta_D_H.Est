@@ -104,7 +104,7 @@ To calculate the following statistic within given regions:
 python2 allele_cali.one_chr.py <input .vcf.gz> <reference genome, chr${chr}.fa.gz> <output .vcf.gz>
 ```
 
-This script can be used to change REF -> Ancestral and ALT -> Derived alleles in the VCF files. 
+This script can be used to change (REF -> Ancestral) and (ALT -> Derived) alleles in the VCF files (one chromosome for single run). 
 
 ---
 By: Yuwen Pan, 2021  
