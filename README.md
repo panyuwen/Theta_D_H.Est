@@ -104,8 +104,8 @@ To calculate the following statistic within given regions:
 python2 allele_cali.one_chr.py <input .vcf.gz> <reference genome, chr${chr}.fa.gz> <output .vcf.gz>
 ```
 
-This script can be used to change (REF -> Ancestral) and (ALT -> Derived) alleles in the VCF files (one chromosome for a single run). 
-The reference genome (ancestral alignment) can be found here http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/analysis_results/supporting/ancestral_alignments/ (hg19, version e59, other versions can be found elsewhere).
+This script can be used to change (REF -> Ancestral) and (ALT -> Derived) alleles in the VCF files (one chromosome for a single run). Developed in python2, use python3 at your own risk. 
+The reference genome (ancestral alignment) can be found here http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/analysis_results/supporting/ancestral_alignments/ (hg19, version e59, other versions can be found elsewhere). fasta for each chromosome can be extracted using tools like samtools. 
 
 ---
 By: Yuwen Pan, 2021  
