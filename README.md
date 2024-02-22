@@ -30,7 +30,7 @@ To calculate the following statistic within given regions:
 
 ### Input:
 
-1. phased VCF.gz file `required` 
+1. phased VCF.gz file (no missing genotype) `required` 
 2. target regions to be analyzed (file) `required` 
 3. samples to be kept (file) `optional` 
 4. haplotypes to be kept (file) `optional`
