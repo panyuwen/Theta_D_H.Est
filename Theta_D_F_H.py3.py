@@ -268,7 +268,7 @@ def convert_vcf(vcf,regionfile,window_shift,info,haplist):
 
     ## extract vcf, and convert format
     geno = pandas.concat(list(region.apply(lambda x: vcf[(vcf['#CHROM']==x['chr']) & (vcf['POS']>=x['start']) & (vcf['POS']<=x['end'])].copy(), axis=1)),ignore_index=True)
-    geno = geno.applymap(lambda x: str(x)[:3] if '|' in str(x) else x)  ## usually the position of "GT" content
+    #geno = geno.applymap(lambda x: str(x)[:3] if '|' in str(x) else x)  ## usually the position of "GT" content
     
     if geno.empty:
         haps = pandas.DataFrame()
