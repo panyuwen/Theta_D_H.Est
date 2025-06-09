@@ -107,6 +107,10 @@ python2 allele_cali.one_chr.py <input .vcf.gz> <reference genome, chr${chr}.fa.g
 This script can be used to change (REF -> Ancestral) and (ALT -> Derived) alleles in the VCF files (one chromosome for a single run). Developed in python2, use python3 at your own risk. 
 The reference genome (ancestral alignment) can be found here http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/analysis_results/supporting/ancestral_alignments/ (hg19, version e59, other versions can be found elsewhere). fasta for each chromosome can be extracted using tools like samtools. 
 
+other versions of ancestral sequence:    
+https://ftp.ensembl.org/pub/grch37/release-114/ancestral_alleles/homo_sapiens_ancestor_GRCh37_e71/    
+https://ftp.ensembl.org/pub/release-114/fasta/ancestral_alleles/](https://ftp.ensembl.org/pub/release-114/fasta/ancestral_alleles/homo_sapiens_ancestor_GRCh38.tar.gz    
+
 ---
 By: Yuwen Pan, 2021  
 Contact: panyuwen.x@gmail.com
