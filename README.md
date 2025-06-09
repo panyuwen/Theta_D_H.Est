@@ -109,7 +109,7 @@ The reference genome (ancestral alignment) can be found here http://ftp.1000geno
 
 other versions of ancestral sequence:    
 https://ftp.ensembl.org/pub/grch37/release-114/ancestral_alleles/homo_sapiens_ancestor_GRCh37_e71/    
-https://ftp.ensembl.org/pub/release-114/fasta/ancestral_alleles/](https://ftp.ensembl.org/pub/release-114/fasta/ancestral_alleles/homo_sapiens_ancestor_GRCh38.tar.gz    
+https://ftp.ensembl.org/pub/release-114/fasta/ancestral_alleles/homo_sapiens_ancestor_GRCh38.tar.gz    
 
 ---
 By: Yuwen Pan, 2021  
