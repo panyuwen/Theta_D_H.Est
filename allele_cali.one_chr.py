@@ -79,15 +79,18 @@ with gzip.open(filename) as fin:
             else:
                 tmp = line.strip().split("\t")
                 chromo, pos, rsid, ref, alt, qual, filt, info, foma = tmp[:9]
-                if human_ancestror_genome[int(pos)] == ref:
-                    fout.write(line)
-                elif human_ancestror_genome[int(pos)] == alt:
-                    geno = tmp[9:]
-                    newgeno = '\t'.join([replacedict.get(g,g) for g in geno])
-                    fout.write(str(chromo)+"\t"+str(pos)+"\t"+rsid+"\t"+alt+"\t"+ref+"\t"+qual+"\t"+filt+"\t"+info+"\t"+foma+"\t"+newgeno+"\n")
-                else:
+                if (len(ref) != 1) or (len(alt) != 1):
                     log.write(str(chromo)+"\t"+str(pos)+"\t"+rsid+"\t"+ref+"\t"+alt+"\n")
-            
+                else:
+                    if human_ancestror_genome[int(pos)] == ref:
+                        fout.write(line)
+                    elif human_ancestror_genome[int(pos)] == alt:
+                        geno = tmp[9:]
+                        newgeno = '\t'.join([replacedict.get(g,g) for g in geno])
+                        fout.write(str(chromo)+"\t"+str(pos)+"\t"+rsid+"\t"+alt+"\t"+ref+"\t"+qual+"\t"+filt+"\t"+info+"\t"+foma+"\t"+newgeno+"\n")
+                    else:
+                        log.write(str(chromo)+"\t"+str(pos)+"\t"+rsid+"\t"+ref+"\t"+alt+"\n")
+
             line = fin.readline()
 
 log.close()
