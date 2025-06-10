@@ -66,34 +66,31 @@ replacedict = {'1|1':'0|0','0|0':'1|1','0|1':'1|0','1|0':'0|1', '1|.':'0|.','0|.
 
 # "0":"1","1":"0"
 
-with gzip.open(output[:-3]+'.mismatch.gz','w') as log:
-    pass
-log = gzip.open(output[:-3]+'.mismatch.gz','a')
+# with gzip.open(output[:-3]+'.mismatch.gz','w') as log:
+#     pass
+# log = gzip.open(output[:-3]+'.mismatch.gz','a')
 
-with gzip.open(filename) as fin:
-    with gzip.open(output,"w") as fout:
-        line = fin.readline()
-        while line:
-            if line[0] == "#":
-                fout.write(line)
+with gzip.open(filename) as fin, gzip.open(output,"w") as fout, gzip.open(output[:-3]+'.mismatch.gz','w') as log:
+    line = fin.readline()
+    while line:
+        if line[0] == "#":
+            fout.write(line)
+        else:
+            tmp = line.strip().split("\t")
+            chromo, pos, rsid, ref, alt, qual, filt, info, foma = tmp[:9]
+            if (len(ref) != 1) or (len(alt) != 1):
+                log.write(str(chromo)+"\t"+str(pos)+"\t"+rsid+"\t"+ref+"\t"+alt+"\n")
             else:
-                tmp = line.strip().split("\t")
-                chromo, pos, rsid, ref, alt, qual, filt, info, foma = tmp[:9]
-                if (len(ref) != 1) or (len(alt) != 1):
-                    log.write(str(chromo)+"\t"+str(pos)+"\t"+rsid+"\t"+ref+"\t"+alt+"\n")
+                if human_ancestror_genome[int(pos)] == ref:
+                    fout.write(line)
+                elif human_ancestror_genome[int(pos)] == alt:
+                    geno = tmp[9:]
+                    newgeno = '\t'.join([replacedict.get(g,g) for g in geno])
+                    fout.write(str(chromo)+"\t"+str(pos)+"\t"+rsid+"\t"+alt+"\t"+ref+"\t"+qual+"\t"+filt+"\t"+info+"\t"+foma+"\t"+newgeno+"\n")
                 else:
-                    if human_ancestror_genome[int(pos)] == ref:
-                        fout.write(line)
-                    elif human_ancestror_genome[int(pos)] == alt:
-                        geno = tmp[9:]
-                        newgeno = '\t'.join([replacedict.get(g,g) for g in geno])
-                        fout.write(str(chromo)+"\t"+str(pos)+"\t"+rsid+"\t"+alt+"\t"+ref+"\t"+qual+"\t"+filt+"\t"+info+"\t"+foma+"\t"+newgeno+"\n")
-                    else:
-                        log.write(str(chromo)+"\t"+str(pos)+"\t"+rsid+"\t"+ref+"\t"+alt+"\n")
+                    log.write(str(chromo)+"\t"+str(pos)+"\t"+rsid+"\t"+ref+"\t"+alt+"\n")
 
-            line = fin.readline()
-
-log.close()
+        line = fin.readline()
 
 print('Done.')
 print('Have a Nice Day!')
