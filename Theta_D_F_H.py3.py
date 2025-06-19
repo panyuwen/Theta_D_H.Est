@@ -416,7 +416,7 @@ def make_sample_hap(samplefile, hapfile, allsamplelist):
     return samplelist, sampleinfo, haplist
 
 def main():
-    parser = argparse.ArgumentParser(description='Theta_D_H.Est, https://github.com/Shuhua-Group/Theta_D_H.Est for more details')
+    parser = argparse.ArgumentParser(description='Theta_D_H.Est, https://github.com/panyuwen/Theta_D_H.Est for more details')
     parser.add_argument("--gzvcf", type=str, required = True, \
                         help="phased.vcf.gz, format:GT (i.e., 0|1). able to deal with diploids and haploids, seperately.")
     parser.add_argument("--samples", type=str, required = False, default='all', \
